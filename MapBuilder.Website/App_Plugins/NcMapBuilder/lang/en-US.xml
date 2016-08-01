@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en_us" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+
+  <creator>
+    <name>Mark Arndt Lønquist - MLO</name>
+    <link>http://marklonquist.com/</link>
+  </creator>
+
+  <area alias="sections">
+    <key alias="MapBuilder">MapBuilder</key>
+  </area>
+
+  <area alias="ncmb">
+    <key alias="maps">Maps</key>
+    <key alias="data">Datasources</key>
+    <key alias="greeting">Welcome to Novicell MapBuilder</key>
+  </area>
+
+  <area alias="ncmb_list">
+    <key alias="header">List of</key>
+    <key alias="tablenameheader">Name</key>
+    <key alias="button">Go to</key>
+  </area>
+
+  <area alias="ncmb_data">
+    <key alias="doctype">Document Type</key>
+    <key alias="doctype_select">Select document type</key>
+    <key alias="mappingheader">Properties for mapping</key>
+    <key alias="titleproperty">Title property selection</key>
+    <key alias="coordsproperty">Coordinates property selection</key>
+    <key alias="selectproperty">Select property</key>
+  </area>
+
+  <area alias="ncmb_data_descriptions">
+    <key alias="doctype">Select the document type you wish to map against</key>
+    <key alias="titleproperty">Select the property you wish to use as title. Titles are used as mouseover tooltips on map markers.</key>
+    <key alias="coordsproperty">Select the property you wish to use for the coordinates. Coordinates are used to place the markers on the map.</key>
+  </area>
+
+  <area alias="ncmb_maps">
+    <key alias="alias">Alias</key>
+    <key alias="gmapi">Google Maps API key</key>
+    <key alias="datasource">Datasource</key>
+    <key alias="datasource_select">Select datasource</key>
+    <key alias="styling">Styling</key>
+    <key alias="hybridmap">Hybrid map</key>
+    <key alias="geolocation">Geo Location</key>
+    <key alias="initialzoom">Initial Zoom</key>
+    <key alias="minimumzoom">Minimum Zoom</key>
+    <key alias="maximumzoom">Maximum Zoom</key>
+    <key alias="iconurl">Icon URL</key>
+    <key alias="iconwidth">Icon Width (pixels)</key>
+    <key alias="iconheight">Icon Height (pixels)</key>
+    <key alias="centeronmarker">Center on Marker</key>
+    <key alias="iw">Info Windows</key>
+    <key alias="iwsettingsheader">Settings</key>
+    <key alias="iwwidth">Width (pixels)</key>
+    <key alias="iwpartial">Partial Name</key>
+    <key alias="controlsdraggable">Draggable</key>
+    <key alias="controlsscrollwheel">Scroll Wheel</key>
+    <key alias="controlszoom">Zoom</key>
+    <key alias="controlsmaptype">Map Type</key>
+    <key alias="controlsstreetview">Street View</key>
+  </area>
+
+  <area alias="ncmb_maps_descriptions">
+    <key alias="alias">The alias of the map - should be unique.</key>
+    <key alias="gmapi">Required as of October 12, 2016.</key>
+    <key alias="datasource">Select the datasource for the map.</key>
+    <key alias="styling">Go to snazzymaps.com for themes.</key>
+    <key alias="hybridmap">Choose whether to use hybrid map as default. (Default = ROADMAP)</key>
+    <key alias="geolocation">Choose whether geo location is enabled or not.</key>
+    <key alias="initialzoom">Set the initial zoom level of the map.</key>
+    <key alias="minimumzoom">Set the minimum amount of zoom possible.</key>
+    <key alias="maximumzoom">Set the maximum amount of zoom possible.</key>
+    <key alias="iconurl">URL for the icon you wish to use for the marker icon. Should be of type PNG.</key>
+    <key alias="iconwidth">Needs to be the same width as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
+    <key alias="iconheight">Needs to be the same height as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
+    <key alias="centeronmarker">Should only be enabled if the map is used for a single marker.</key>
+    <key alias="iw">Choose whether you wish to use info windows or not.</key>
+    <key alias="iwwidth">The desired width of the info window.</key>
+    <key alias="iwpartial">The name of the partial you wish to use for rendering info windows. These partials should be placed in "Views/Partials/MapBuilder/InfoWindows"</key>
+    <key alias="controlsdraggable">Choose whether you wish to enable dragging the map or not.</key>
+    <key alias="controlsscrollwheel">Choose whether you wish to enable scrolling of the map or not.</key>
+    <key alias="controlszoom">Choose whether you wish to enable zoom controls or not.</key>
+    <key alias="controlsmaptype">Choose whether you wish to enable map type controls or not.</key>
+    <key alias="controlsstreetview">Choose whether you wish to enable street view controls or not.</key>
+  </area>
+
+  <area alias="ncmb_maps_tabs">
+    <key alias="general">General</key>
+    <key alias="map">Map</key>
+    <key alias="markers">Markers</key>
+    <key alias="clustering">Clustering</key>
+    <key alias="infowindows">Info Windows</key>
+    <key alias="controls">Controls</key>
+  </area>
+
+  <area alias="ncmb_maps_cluster">
+    <key alias="clustering">Clustering</key>
+    <key alias="toggleone">Toggle settings (smallest)</key>
+    <key alias="toggletwo">Toggle settings (2nd smallest)</key>
+    <key alias="togglethree">Toggle settings (medium)</key>
+    <key alias="togglefour">Toggle settings (2nd largest)</key>
+    <key alias="togglefive">Toggle settings (largest)</key>
+    <key alias="iconurl">Icon URL</key>
+    <key alias="iconwidth">Icon Width (pixels)</key>
+    <key alias="iconheight">Icon Height (pixels)</key>
+    <key alias="topanchor">Top Anchor (pixels)</key>
+    <key alias="leftanchor">Left Anchor (pixels)</key>
+    <key alias="textcolor">Text Color</key>
+  </area>
+
+  <area alias="ncmb_maps_cluster_descriptions">
+    <key alias="clustering">Choose whether you wish to use clustering or not.</key>
+    <key alias="iconurl">The URL for the cluster icon.</key>
+    <key alias="iconwidth">Needs to be the same width as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
+    <key alias="iconheight">Needs to be the same height as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
+    <key alias="topanchor">The top anchor for the icon. Might need to play around with this before wanted results is achieved.</key>
+    <key alias="leftanchor">The left anchor for the icon. Might need to play around with this before wanted results is achieved.</key>
+    <key alias="textcolor">Select the color of the text which is used to present how many markers is in a cluster.</key>
+  </area>
+
+  <area alias="ncmb_placeholders">
+    <key alias="entername">Enter a name...</key>
+  </area>
+
+</language>

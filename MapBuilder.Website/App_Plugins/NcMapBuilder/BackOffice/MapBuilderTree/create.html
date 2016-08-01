@@ -1,0 +1,8 @@
+﻿<div ng-controller="Novicell.CreateController" style="padding: 20px;">
+    <div class="row">
+        <input class="umb-headline ng-pristine ng-invalid ng-invalid-required" type="text" placeholder="Name" ng-model="name" ng-required="Required" />
+    </div>
+    <div class="row">
+        <button class="btn btn-success" ng-click="(name.trim().length > 0) && createNew();">Create</button>
+    </div>
+</div>

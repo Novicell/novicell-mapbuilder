@@ -1,0 +1,29 @@
+﻿{   
+	propertyEditors: [      
+		{
+			alias: "Novicell.MapPicker",
+			name: "Novicell Map Picker",
+			editor: {
+				view: "~/App_Plugins/NcMapBuilder/PropertyEditors/MapPicker/Views/MapPicker.html"
+			}
+		},
+		{
+			alias: "Novicell.CoordsPicker",
+			name: "Novicell Coordinate Picker",
+			editor: {
+				view: "~/App_Plugins/NcMapBuilder/PropertyEditors/CoordinatesPicker/Views/CoordsPicker.html"
+			}
+		}
+	]
+	,
+	javascript: [
+		'~/App_Plugins/NcMapBuilder/PropertyEditors/MapPicker/Controllers/MapPicker.Controller.js',
+		'~/App_Plugins/NcMapBuilder/PropertyEditors/CoordinatesPicker/Controllers/CoordsPicker.Controller.js',
+		'~/App_Plugins/NcMapBuilder/BackOffice/Resources/MapBuilder.Resource.js',
+		'~/App_Plugins/NcMapBuilder/BackOffice/MapBuilderTree/js/Create.Controller.js',
+		'~/App_Plugins/NcMapBuilder/BackOffice/MapBuilderTree/js/Delete.Controller.js',
+		'~/App_Plugins/NcMapBuilder/BackOffice/MapBuilderTree/js/MapBuilderEditData.Controller.js',
+		'~/App_Plugins/NcMapBuilder/BackOffice/MapBuilderTree/js/MapBuilderEditMap.Controller.js',
+		'~/App_Plugins/NcMapBuilder/BackOffice/MapBuilderTree/js/MapBuilderList.Controller.js'
+	]
+}

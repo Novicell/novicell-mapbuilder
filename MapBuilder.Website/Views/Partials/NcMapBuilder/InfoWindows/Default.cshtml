@@ -1,0 +1,9 @@
+@model MapBuilder.Library.Models.InfoWindowModel
+@{
+    var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
+    var node = umbracoHelper.TypedContent(Model.Id);
+}
+
+<div class="mapbuilder-infowindow">
+    @node.Name
+</div>

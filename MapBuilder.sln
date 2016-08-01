@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapBuilder.Website", "MapBuilder.Website\MapBuilder.Website.csproj", "{0300FEA0-0D8B-4781-B554-F3B050719375}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapBuilder.Library", "MapBuilder.Library\MapBuilder.Library.csproj", "{D897C1E5-6BC4-4F19-80F6-E9A290216154}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0300FEA0-0D8B-4781-B554-F3B050719375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0300FEA0-0D8B-4781-B554-F3B050719375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0300FEA0-0D8B-4781-B554-F3B050719375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0300FEA0-0D8B-4781-B554-F3B050719375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D897C1E5-6BC4-4F19-80F6-E9A290216154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D897C1E5-6BC4-4F19-80F6-E9A290216154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D897C1E5-6BC4-4F19-80F6-E9A290216154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D897C1E5-6BC4-4F19-80F6-E9A290216154}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+﻿<div ng-controller="Novicell.CoordsPickerController" class="umb-editor umb-googlemaps">
+    <div style="margin-bottom: 20px;">
+        <p style="padding-top: 5px; float: left; margin-right: 10px;">Lookup:</p>
+        <input type="text" style="width: 300px;" ng-model="searchField"/>
+        <input type="button" value="Lookup" class="btn" ng-click="lookupAddress()" ng-disabled="searchField === ''"/>
+    </div>
+
+    <div style="margin-bottom:20px;">
+        <h5>If the map is grey, please press the button below</h5>
+        <input type="button" value="Reset map" ng-click="resetMap()" style="margin-bottom:10px;"/>
+    </div>
+
+    <div style="height: 400px;" id="{{model.alias}}_map"></div>
+
+    <div style="margin-top: 20px;">
+        <p><b>Lat/Lng:</b> {{model.value}}</p>
+    </div>
+</div>

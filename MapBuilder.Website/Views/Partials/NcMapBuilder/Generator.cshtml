@@ -1,0 +1,21 @@
+﻿@using System.Web.Script.Serialization
+@using MapBuilder.Library.ExtensionMethods
+@model MapBuilder.Library.Models.GeneratorModel
+@{
+    Layout = null;
+
+    var nodeIdsAsJson = "[]";
+    if (Model.NodeIds != null && Model.NodeIds.Any())
+    {
+        var jsonSerialiser = new JavaScriptSerializer();
+        nodeIdsAsJson = jsonSerialiser.Serialize(Model.NodeIds);
+    }
+}
+
+<section class="mapbuilder" style="height: 100%;">
+    <div id="map-container" style="height: 100%;"></div>
+    @Html.RenderMapScripts()
+    <script type="text/javascript">
+        ncmapbuilder.generator.init('@Model.Alias', '@nodeIdsAsJson', '@Model.TitleProperty', '@Model.CoordsProperty');
+    </script>
+</section>
