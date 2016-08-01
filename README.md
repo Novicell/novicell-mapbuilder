@@ -7,6 +7,7 @@ MapBuilder is an umbraco package for easily generating Google Maps based on umbr
 * [Quick start](#quick-start)
 * [Requirements](#requirements)
 * [Found a bug?](#found-a-bug)
+* [Improvements](#improvements)
 * [License](#license)
 
 ## Quick start
@@ -28,6 +29,9 @@ It MAY work in earlier versions, but this has not been tested.
 
 ## Found a bug?
 You're more than welcome to fork the project and fix any bug you may find. Submit a pull request, and we will review it as quickly as possible, and merge it when approved.
+
+## Improvement?
+If you have an improvement for the project, please fork the project and create a pull request with the change. We will review it as quickly as possible, and merge it when approved.
 
 ## License
 MIT License - http://opensource.org/licenses/MIT
