@@ -7,7 +7,7 @@ MapBuilder is an umbraco package for easily generating Google Maps based on umbr
 * [Quick start](#quick-start)
 * [Requirements](#requirements)
 * [Found a bug?](#found-a-bug)
-* [Improvements](#improvements)
+* [Improvements?](#improvements)
 * [License](#license)
 
 ## Quick start
