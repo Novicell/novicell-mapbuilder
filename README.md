@@ -5,13 +5,13 @@ MapBuilder is an umbraco package for easily generating Google Maps based on umbr
 
 ### Table of content
 * [Quick start](#quick-start)
+* [Public methods](#public-methods)
 * [Requirements](#requirements)
 * [Found a bug?](#found-a-bug)
 * [Improvements?](#improvements)
 * [License](#license)
 
 ## Quick start
-
 To go https://our.umbraco.org/projects/website-utilities/mapbuilder/ and download the package.
 
 Then go to your backoffice > Developer > Packages > Install local package, and install it as usual. Accept when you're told that the package contain binary files.
@@ -21,6 +21,23 @@ After the installation completes. Go to the new custom section, and setup a data
 Go to the map and copy the alias. We need this for the next part.
 
 When you're all set in the custom section, go to the view where you wish for the map to be showed. Use @Html.RenderMap(MAPALIAS), and that's it.
+
+## Public methods
+The methods available for use is:
+
+```C#
+MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias)
+```
+
+```C#
+MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias, List<int> nodeIds)
+```
+
+```C#
+MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias, List<int> nodeIds, string titleProperty, string coordsProperty)
+```
+
+Each of the methods has inline summaries of what is expected from them.
 
 ## Requirements
 Umbraco 7.4+
