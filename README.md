@@ -26,15 +26,15 @@ When you're all set in the custom section, go to the view where you wish for the
 The methods available for use is:
 
 ```C#
-MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias)
+public static MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias)
 ```
 
 ```C#
-MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias, List<int> nodeIds)
+public static MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias, List<int> nodeIds)
 ```
 
 ```C#
-MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias, List<int> nodeIds, string titleProperty, string coordsProperty)
+public static MvcHtmlString RenderMap(this HtmlHelper htmlHelper, string mapAlias, List<int> nodeIds, string titleProperty, string coordsProperty)
 ```
 
 Each of the methods has inline summaries of what is expected from them.
