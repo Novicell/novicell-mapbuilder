@@ -10,7 +10,7 @@ MapBuilder is an umbraco package for easily generating Google Maps based on umbr
 
 ## Quick start
 
-To go `https://our.umbraco.org/projects/website-utilities/mapbuilder/` and download the package. Then go to your backoffice > Developer > Packages, and install it as usual.
+To go [https://our.umbraco.org/projects/website-utilities/mapbuilder/](https://our.umbraco.org/projects/website-utilities/mapbuilder/) and download the package. Then go to your backoffice > Developer > Packages, and install it as usual.
 
 After the installation completes. Go to the new custom section, and setup a datasource. After you've created a datasource, create a new map, and set the datasource to the newly created one.
 
@@ -22,4 +22,4 @@ When you're all set in the custom section, go to the view where you wish for the
 Umbraco 7.4+ is required
 
 ## License
-MIT License - `http://opensource.org/licenses/MIT`
+MIT License - [http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT)
