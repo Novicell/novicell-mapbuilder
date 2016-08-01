@@ -22,7 +22,9 @@ Go to the map and copy the alias. We need this for the next part.
 When you're all set in the custom section, go to the view where you wish for the map to be showed. Use @Html.RenderMap(MAPALIAS), and that's it.
 
 ## Requirements
-Umbraco 7.4+ is required
+Umbraco 7.4+
+
+It MAY work in earlier versions, but this has not been tested.
 
 ## Found a bug?
 You're more than welcome to fork the project and fix any bug you may find. Submit a pull request, and we will review it as quickly as possible, and merge it when approved.
