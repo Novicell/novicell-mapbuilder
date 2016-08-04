@@ -67,13 +67,35 @@ namespace MapBuilder.Library.Helpers
                 var umbraco = new UmbracoHelper(UmbracoContext.Current);
                 var nodes = ids != null && ids.Any() ? umbraco.TypedContent(ids) : umbraco.TypedContentAtRoot().DescendantsOrSelf(dataModel.DocAlias).ToList().Where(x => !x.IsDraft && x.IsVisible());
 
-                items.AddRange(nodes.Select(node => new ApiNodeModel
+                var isName = titleProperty.ToLowerInvariant() == "name" ||
+                             dataModel.TitleProperty.ToLowerInvariant() == "name";
+
+                var isId = titleProperty.ToLowerInvariant() == "id" ||
+                             dataModel.TitleProperty.ToLowerInvariant() == "id";
+
+                var isUrl = titleProperty.ToLowerInvariant() == "url" ||
+                             dataModel.TitleProperty.ToLowerInvariant() == "url";
+
+                foreach (var node in nodes)
                 {
-                    Id = node.Id,
-                    Title = node.GetPropertyValue<string>(!string.IsNullOrWhiteSpace(titleProperty) ? titleProperty : dataModel.TitleProperty),
-                    Coordinates = node.GetPropertyValue<string>(!string.IsNullOrWhiteSpace(coordsProperty) ? coordsProperty : dataModel.CoordsProperty).Split(',').Select(double.Parse).ToArray(),
-                    InfoWindowContent = new RazorHelper().RenderPartialView("NcMapBuilder/InfoWindows/" + infoWindowName, new InfoWindowModel { Id = node.Id })
-                }));
+                    var model = new ApiNodeModel();
+
+                    var title = isName ? node.Name : (isId ? node.Id.ToString() : (isUrl ? node.Url : node.GetPropertyValue<string>(!string.IsNullOrWhiteSpace(titleProperty)
+                            ? titleProperty
+                            : dataModel.TitleProperty)));
+
+                    model.Id = node.Id;
+                    model.Title = title;
+                    model.Coordinates =
+                        node.GetPropertyValue<string>(!string.IsNullOrWhiteSpace(coordsProperty)
+                            ? coordsProperty
+                            : dataModel.CoordsProperty).Split(',').Select(double.Parse).ToArray();
+                    model.InfoWindowContent =
+                        new RazorHelper().RenderPartialView("NcMapBuilder/InfoWindows/" + infoWindowName,
+                            new InfoWindowModel {Id = node.Id});
+
+                    items.Add(model);
+                }
 
                 return items;
             }

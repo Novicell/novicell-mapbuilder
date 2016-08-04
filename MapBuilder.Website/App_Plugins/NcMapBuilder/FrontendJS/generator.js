@@ -44,6 +44,12 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
     function initGoogleMapsScript() {
         var element = document.getElementById('map-container');
 
+        var mapsUrl = 'https://maps.googleapis.com/maps/api/js?callback=ncmapbuilder.generator.loadMap';
+
+        if (mapsModel.ApiKey != null && mapsModel.ApiKey.length) {
+            mapsUrl = 'https://maps.googleapis.com/maps/api/js?key=' + mapsModel.ApiKey + '&callback=ncmapbuilder.generator.loadMap';
+        }
+
         // If the map is in view on load, load the map,
         // else we setup an onscroll to load it, once it gets into view.
         if (!isLoaded && element && isScrolledIntoView(element)) {
@@ -51,7 +57,7 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
             // Async load the GMaps API and run "loadMap"
             var script = document.createElement('script');
             script.type = 'text/javascript';
-            script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=ncmapbuilder.generator.loadMap';
+            script.src = mapsUrl;
             document.body.appendChild(script);
         } else {
             document.onscroll = function () {
@@ -60,7 +66,7 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
                     // Async load the GMaps API and run "loadMap"
                     var script = document.createElement('script');
                     script.type = 'text/javascript';
-                    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=ncmapbuilder.generator.loadMap';
+                    script.src = mapsUrl;
                     document.body.appendChild(script);
                 }
             }

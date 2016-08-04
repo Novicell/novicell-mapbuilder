@@ -355,6 +355,7 @@
     <Compile Include="App_Data\Models\Site.generated.cs" />
     <Compile Include="App_Data\Models\Storeitem.generated.cs" />
     <Compile Include="App_Data\Models\Storelist.generated.cs" />
+    <Compile Include="App_Data\Models\TextPage.generated.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\PageHomeModel.cs" />
@@ -399,6 +400,7 @@
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\NcMapBuilder\Scripts.cshtml" />
+    <Content Include="Views\TextPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
