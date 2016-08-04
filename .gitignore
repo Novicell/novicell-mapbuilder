@@ -38,3 +38,4 @@ packages
 *Website/umbraco_client/
 *Website/help/
 MapBuilder.Website/App_Data/TEMP/
+/MapBuilder.Website/Web.Debug.config
