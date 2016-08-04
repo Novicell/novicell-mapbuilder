@@ -30,7 +30,7 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
                 }
             }
         };
-        xhr.open('POST', 'umbraco/api/MapBuilderApi/getmapmodel', true);
+        xhr.open('POST', '/umbraco/api/MapBuilderApi/getmapmodel', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(
             {
