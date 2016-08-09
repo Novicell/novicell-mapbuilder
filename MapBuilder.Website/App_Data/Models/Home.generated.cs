@@ -21,11 +21,11 @@ using Umbraco.ModelsBuilder.Umbraco;
 namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Home</summary>
-	[PublishedContentModel("Home")]
-	public partial class Home : Master
+	[PublishedContentModel("home")]
+	public partial class Home : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "Home";
+		public new const string ModelTypeAlias = "home";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
@@ -46,12 +46,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Map: Test
+		/// Map
 		///</summary>
-		[ImplementPropertyType("map")]
-		public object Map
+		[ImplementPropertyType("selectedMap")]
+		public object SelectedMap
 		{
-			get { return this.GetPropertyValue("map"); }
+			get { return this.GetPropertyValue("selectedMap"); }
 		}
 	}
 }

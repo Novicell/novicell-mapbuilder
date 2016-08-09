@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>StoreItem</summary>
-	[PublishedContentModel("Storeitem")]
-	public partial class Storeitem : Master
+	/// <summary>Store Item</summary>
+	[PublishedContentModel("storeItem")]
+	public partial class StoreItem : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "Storeitem";
+		public new const string ModelTypeAlias = "storeItem";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public Storeitem(IPublishedContent content)
+		public StoreItem(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,18 +40,9 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Storeitem, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<StoreItem, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Address
-		///</summary>
-		[ImplementPropertyType("address")]
-		public string Address
-		{
-			get { return this.GetPropertyValue<string>("address"); }
 		}
 
 		///<summary>
@@ -61,15 +52,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public object Coordinates
 		{
 			get { return this.GetPropertyValue("coordinates"); }
-		}
-
-		///<summary>
-		/// Textareatest
-		///</summary>
-		[ImplementPropertyType("textareatest")]
-		public int Textareatest
-		{
-			get { return this.GetPropertyValue<int>("textareatest"); }
 		}
 
 		///<summary>

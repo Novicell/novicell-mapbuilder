@@ -1,12 +1,12 @@
 ﻿@using MapBuilder.Library.ExtensionMethods
-@inherits UmbracoViewPage<MapBuilder.Website.Models.PageHomeModel>
+@inherits UmbracoViewPage<Home>
 @{
     Layout = "LayoutMaster.cshtml";
 }
 <div class="row">
     <div class="col-md-12">
         <div style="height: 600px; width: 100%;">
-            @Html.RenderMap(Model.Content.GetPropertyValue<string>("map"))
+            @Html.RenderMap(Model.SelectedMap.ToString())
         </div>
     </div>
 </div>

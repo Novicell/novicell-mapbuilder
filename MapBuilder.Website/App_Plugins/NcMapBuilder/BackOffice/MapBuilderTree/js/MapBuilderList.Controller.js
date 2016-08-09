@@ -37,16 +37,4 @@ angular.module('umbraco')
     return function (input) {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
-}).directive('localizeOption', function (localizationService) {
-    return {
-        restrict: 'A',
-        link: function ($scope, element, attrs, controller) {
-            var key = attrs.localizeOption;
-
-            localizationService.localize(key).then(function (value) {
-                element.text(value);
-            });
-        }
-    };
-}
-  );
+});

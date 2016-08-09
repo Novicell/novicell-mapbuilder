@@ -21,11 +21,11 @@ using Umbraco.ModelsBuilder.Umbraco;
 namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Site</summary>
-	[PublishedContentModel("Site")]
+	[PublishedContentModel("site")]
 	public partial class Site : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "Site";
+		public new const string ModelTypeAlias = "site";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
@@ -43,15 +43,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Site, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Umbraco Internal Redirect Id: Choose the actual front page
-		///</summary>
-		[ImplementPropertyType("umbracoInternalRedirectId")]
-		public object UmbracoInternalRedirectId
-		{
-			get { return this.GetPropertyValue("umbracoInternalRedirectId"); }
 		}
 	}
 }

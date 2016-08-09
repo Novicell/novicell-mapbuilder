@@ -9,6 +9,7 @@ MapBuilder is an umbraco package for easily generating Google Maps based on umbr
 * [Requirements](#requirements)
 * [Found a bug?](#found-a-bug)
 * [Improvements?](#improvements)
+* [Login for development](#login)
 * [License](#license)
 
 ## Quick start
@@ -49,6 +50,13 @@ You're more than welcome to fork the project and fix any bug you may find. Submi
 
 ## Improvement?
 If you have an improvement for the project, please fork the project and create a pull request with the change. We will review it as quickly as possible, and merge it when approved.
+
+## Login for development
+To log into Umbraco when developing for this repository, please use the following credentials:
+Username: admin@admin.dk
+Password: admin1234
+
+The setup uses Microsoft SQL CE (Compact Edition) to avoid having to setup a new database and cloning in a bak file.
 
 ## License
 MIT License - http://opensource.org/licenses/MIT

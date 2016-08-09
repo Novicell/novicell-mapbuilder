@@ -350,12 +350,10 @@
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\Home.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
-    <Compile Include="App_Data\Models\Master.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\Site.generated.cs" />
     <Compile Include="App_Data\Models\Storeitem.generated.cs" />
     <Compile Include="App_Data\Models\Storelist.generated.cs" />
-    <Compile Include="App_Data\Models\TextPage.generated.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\PageHomeModel.cs" />
@@ -372,7 +370,6 @@
     <Content Include="Views\Partials\NcMapBuilder\InfoWindows\Default.cshtml" />
     <Content Include="Views\Partials\NcMapBuilder\Generator.cshtml" />
     <Content Include="Views\StoreItem.cshtml" />
-    <Content Include="Views\StoreList.cshtml" />
     <Content Include="Views\Home.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -400,7 +397,6 @@
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\NcMapBuilder\Scripts.cshtml" />
-    <Content Include="Views\TextPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
