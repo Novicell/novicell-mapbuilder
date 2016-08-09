@@ -1,5 +1,5 @@
 angular.module('umbraco')
-.controller('Novicell.OverviewController', function ($scope, $routeParams, mapBuilderResource, localizationService) {
+.controller('Novicell.OverviewController', function ($scope, $routeParams, mapBuilderResource, localizationService, navigationService) {
     var ctrl = this;
 
     // Sets up an object for binding
@@ -33,6 +33,9 @@ angular.module('umbraco')
     else if ($routeParams.id.indexOf('data-') !== -1) {
         ctrl.typeName = 'EditData';
     }
+
+    navigationService.syncTree({ tree: 'MapBuilderTree', path: ["-1", $routeParams.id] });
+
 }).filter('capitalize', function () {
     return function (input) {
         return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';

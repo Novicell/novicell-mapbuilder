@@ -1,5 +1,5 @@
 ﻿angular.module('umbraco')
-    .controller('Novicell.EditDataController', function ($scope, $routeParams, notificationsService, mapBuilderResource) {
+    .controller('Novicell.EditDataController', function ($scope, $routeParams, notificationsService, mapBuilderResource, navigationService) {
         var ctrl = this;
         ctrl.content = {};
         ctrl.data = {};
@@ -52,4 +52,8 @@
                 notificationsService.info('Info', 'You have not filled out all required fields.');
             }
         }
+
+        console.log($routeParams);
+
+        navigationService.syncTree({ tree: 'MapBuilderTree', path: ["-1", "Data", $routeParams.id] });
     });

@@ -387,7 +387,6 @@
     <Content Include="Config\EmbeddedMedia.config" />
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\404handlers.config" />
-    <None Include="Properties\PublishProfiles\mapbuilder dev02.pubxml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
@@ -407,6 +406,7 @@
   <ItemGroup>
     <Folder Include="css\" />
     <Folder Include="media\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="scripts\" />
     <Folder Include="Views\MacroPartials\" />
   </ItemGroup>
