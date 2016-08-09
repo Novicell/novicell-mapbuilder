@@ -53,7 +53,7 @@ If you have an improvement for the project, please fork the project and create a
 
 ## Login for development
 To log into Umbraco when developing for this repository, please use the following credentials:
-Username: admin@admin.dk
+Username: admin
 Password: admin1234
 
 The setup uses Microsoft SQL CE (Compact Edition) to avoid having to setup a new database and cloning in a bak file.
