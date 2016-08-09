@@ -1,10 +1,15 @@
 ﻿angular.module('umbraco')
     .controller('Novicell.EditDataController', function ($scope, $routeParams, notificationsService, mapBuilderResource) {
         var ctrl = this;
+        ctrl.content = {};
         ctrl.data = {};
         ctrl.docTypes = [];
         ctrl.docTypeProps = [];
         ctrl.style = {};
+
+        ctrl.content.tabs = [
+            { id: 1, label: 'General' }
+        ];
 
         mapBuilderResource.getDataSource($routeParams.id.substr(5)).then(function (response) {
             ctrl.data = response.data;

@@ -17,7 +17,7 @@
 
             <div class="umb-panel-body">
                 <div class="umb-pane">
-                    <h4 style="margin-bottom: 20px;"><localize key="ncmb_list_header">List of</localize> {{ctrl.name}}</h4>
+                    <h4 style="margin-bottom: 20px;"><span localize-option="ncmb_list_header">List of</span> {{ctrl.name}}</h4>
 
                     <div class="umb-table" ng-if="ctrl.items">
                         <div class="umb-table-head">
@@ -59,290 +59,272 @@
     <!--#region editing map -->
     <div ng-if="ctrl.typeName == 'EditMaps'">
         <form name="form" ng-controller="Novicell.EditMapController as ctrl" val-form-manager>
-            <umb-panel>
-                <umb-header tabs="ctrl.content.tabs">
-                    <div class="umb-panel-header-content-wrapper">
-                        <div class="umb-panel-header-content -top-position">
-                            <div class="umb-panel-header-left-side">
-                                <div class="umb-panel-header-title-wrapper">
-                                    <input class="umb-panel-header-name-input" type="text" name="mapName" ng-model="ctrl.content.map.Name" localize="placeholder" placeholder="@ncmb_placeholders_entername" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapName.$error.required}" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </umb-header>
+            <umb-editor-view umb-tabs>
+                <umb-editor-header name="ctrl.content.map.Name"
+                                   tabs="ctrl.content.tabs"
+                                   hide-icon="true"
+                                   hide-description="true"
+                                   hide-alias="true">
+                </umb-editor-header>
 
-                <umb-tab-view>
-                    <umb-tab id="tab1" rel="wut1">
+                <umb-editor-container>
+                    <umb-tabs-content view="true" class="form-horizontal">
+                        <umb-tab id="tab1" rel="1">
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_alias">Alias</localize>
+                                            <small><localize key="ncmb_maps_descriptions_alias">The alias of the map - should be unique.</localize></small>
+                                        </label>
 
-                        <div class="umb-pane">
-                            <div class="form-horizontal tab-content">
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_alias">Alias</localize>
-                                                <small><localize key="ncmb_maps_descriptions_alias">The alias of the map - should be unique.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <input class="umb-editor umb-textstring textstring" type="text" name="mapAlias" ng-model="ctrl.content.map.Alias" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapAlias.$error.required}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_gmapi">Google Maps API key</localize>
-                                                <small>
-                                                    <localize key="ncmb_maps_descriptions_gmapi">Required as of October 12, 2016.</localize>
-                                                </small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <input class="umb-editor umb-textstring textstring" type="text" ng-model="ctrl.content.map.ApiKey" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_datasource">Datasource</localize>
-                                                <small><localize key="ncmb_maps_descriptions_datasource">Select the datasource for the map.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <select class="umb-editor umb-dropdown" name="mapDataId" ng-model="ctrl.content.map.DataId" ng-options="datasource.Id as datasource.Name for datasource in ctrl.content.dataSources" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapDataId.$error.required}" required>
-                                                        <option value="">-- <localize key="ncmb_maps_datasource_select">Select datasource</localize> --</option>
-                                                    </select>
-                                                </div>
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <input class="umb-editor umb-textstring textstring" type="text" name="mapAlias" ng-model="ctrl.content.map.Alias" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapAlias.$error.required}" required />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </umb-tab>
-                    <umb-tab id="tab2" rel="wut2">
-                        <div class="umb-pane">
 
-                            <div class="form-horizontal tab-content">
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_styling">Styling</localize>
-                                                <small><localize key="ncmb_maps_descriptions_styling">Go to snazzymaps.com for themes.</localize></small>
-                                            </label>
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_gmapi">Google Maps API key</localize>
+                                            <small>
+                                                <localize key="ncmb_maps_descriptions_gmapi">Required as of October 12, 2016.</localize>
+                                            </small>
+                                        </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <textarea class="umb-editor umb-textarea textstring" rows="10" ng-model="ctrl.content.mapStyle"></textarea>
-                                                </div>
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <input class="umb-editor umb-textstring textstring" type="text" ng-model="ctrl.content.map.ApiKey" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_hybridmap">Hybrid map</localize>
-                                                <small><localize key="ncmb_maps_descriptions_hybridmap">Choose whether to use hybrid map as default or not. (Default = ROADMAP)</localize></small>
-                                            </label>
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_datasource">Datasource</localize>
+                                            <small><localize key="ncmb_maps_descriptions_datasource">Select the datasource for the map.</localize></small>
+                                        </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.UseHybridMap" />
-                                                    </div>
-                                                </div>
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <select class="umb-editor umb-dropdown" name="mapDataId" ng-model="ctrl.content.map.DataId" ng-options="datasource.Id as datasource.Name for datasource in ctrl.content.dataSources" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapDataId.$error.required}" required>
+                                                    <option value="">-- <localize key="ncmb_maps_datasource_select">Select datasource</localize> --</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </umb-tab>
 
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_geolocation">Geo Location</localize>
-                                                <small><localize key="ncmb_maps_descriptions_geolocation">Choose whether geo location is enabled or not.</localize></small>
-                                            </label>
+                        <umb-tab id="tab2" rel="2">
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_styling">Styling</localize>
+                                            <small><localize key="ncmb_maps_descriptions_styling">Go to snazzymaps.com for themes.</localize></small>
+                                        </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.UseGeoLocation" />
-                                                    </div>
-                                                </div>
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <textarea class="umb-editor umb-textarea textstring" rows="10" ng-model="ctrl.content.mapStyle"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_initialzoom">Initial Zoom</localize>
-                                                <small><localize key="ncmb_maps_descriptions_initialzoom">Set the initial zoom level of the map.</localize></small>
-                                            </label>
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_hybridmap">Hybrid map</localize>
+                                            <small><localize key="ncmb_maps_descriptions_hybridmap">Choose whether to use hybrid map as default or not. (Default = ROADMAP)</localize></small>
+                                        </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <select class="umb-editor umb-dropdown" ng-model="ctrl.content.map.InitialZoom" ng-options="number as number for number in ctrl.zoomLevels"></select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_minimumzoom">Minimum Zoom</localize>
-                                                <small><localize key="ncmb_maps_descriptions_minimumzoom">Set the minimum amount of zoom possible.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <select class="umb-editor umb-dropdown" ng-model="ctrl.content.map.MinZoom" ng-options="number as number for number in ctrl.zoomLevels"></select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_maximumzoom">Maximum Zoom</localize>
-                                                <small><localize key="ncmb_maps_descriptions_maximumzoom">Set the maximum amount of zoom possible.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <select class="umb-editor umb-dropdown" ng-model="ctrl.content.map.MaxZoom" ng-options="number as number for number in ctrl.zoomLevels"></select>
-                                                    </div>
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.UseHybridMap" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </umb-tab>
-                    <umb-tab id="tab3" rel="wut3">
-                        <div class="umb-pane">
-                            <div class="form-horizontal tab-content">
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_iconurl">Icon URL</localize>
-                                                <small><localize key="ncmb_maps_descriptions_iconurl">URL for the icon you wish to use for the marker icon. Should be of type PNG.</localize></small>
-                                            </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <input class="umb-editor umb-textstring textstring" type="text" name="mapIconUrl" ng-model="ctrl.content.defaultIconStyle.url" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapIconUrl.$error.required}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_geolocation">Geo Location</localize>
+                                            <small><localize key="ncmb_maps_descriptions_geolocation">Choose whether geo location is enabled or not.</localize></small>
+                                        </label>
 
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_iconwidth">Icon Width (pixels)</localize>
-                                                <small><localize key="ncmb_maps_descriptions_iconwidth">Needs to be the same width as the PNG selected above. This is required because of a limitation in Google Maps API.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <input class="umb-editor umb-number" type="number" name="mapIconWidth" ng-model="ctrl.content.defaultIconStyle.Width" min="0" step="1" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapIconWidth.$error.required}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_iconheight">Icon Height (pixels)</localize>
-                                                <small><localize key="ncmb_maps_descriptions_iconheight">Needs to be the same height as the PNG selected above. This is required because of a limitation in Google Maps API.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <input class="umb-editor umb-number" type="number" name="mapIconHeight" ng-model="ctrl.content.defaultIconStyle.Height" min="0" step="1" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapIconHeight.$error.required}" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_centeronmarker">Center on Marker</localize>
-                                                <small><localize key="ncmb_maps_descriptions_centeronmarker">Should only be enabled if the map is used for a single marker.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.CenterOnMarker" />
-                                                    </div>
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.UseGeoLocation" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </umb-tab>
-                    <umb-tab id="tab4" rel="wut4">
-                        <div class="umb-pane">
-                            <div class="form-horizontal tab-content">
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_cluster_clustering">Clustering</localize>
-                                                <small><localize key="ncmb_maps_cluster_descriptions_clustering">Choose whether you wish to use clustering or not.</localize></small>
-                                            </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.UseClustering" />
-                                                    </div>
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_initialzoom">Initial Zoom</localize>
+                                            <small><localize key="ncmb_maps_descriptions_initialzoom">Set the initial zoom level of the map.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <select class="umb-editor umb-dropdown" ng-model="ctrl.content.map.InitialZoom" ng-options="number as number for number in ctrl.zoomLevels"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_minimumzoom">Minimum Zoom</localize>
+                                            <small><localize key="ncmb_maps_descriptions_minimumzoom">Set the minimum amount of zoom possible.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <select class="umb-editor umb-dropdown" ng-model="ctrl.content.map.MinZoom" ng-options="number as number for number in ctrl.zoomLevels"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_maximumzoom">Maximum Zoom</localize>
+                                            <small><localize key="ncmb_maps_descriptions_maximumzoom">Set the maximum amount of zoom possible.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <select class="umb-editor umb-dropdown" ng-model="ctrl.content.map.MaxZoom" ng-options="number as number for number in ctrl.zoomLevels"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </umb-tab>
+
+                        <umb-tab id="tab3" rel="3">
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_iconurl">Icon URL</localize>
+                                            <small><localize key="ncmb_maps_descriptions_iconurl">URL for the icon you wish to use for the marker icon. Should be of type PNG.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <input class="umb-editor umb-textstring textstring" type="text" name="mapIconUrl" ng-model="ctrl.content.defaultIconStyle.url" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapIconUrl.$error.required}" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_iconwidth">Icon Width (pixels)</localize>
+                                            <small><localize key="ncmb_maps_descriptions_iconwidth">Needs to be the same width as the PNG selected above. This is required because of a limitation in Google Maps API.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <input class="umb-editor umb-number" type="number" name="mapIconWidth" ng-model="ctrl.content.defaultIconStyle.Width" min="0" step="1" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapIconWidth.$error.required}" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_iconheight">Icon Height (pixels)</localize>
+                                            <small><localize key="ncmb_maps_descriptions_iconheight">Needs to be the same height as the PNG selected above. This is required because of a limitation in Google Maps API.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <input class="umb-editor umb-number" type="number" name="mapIconHeight" ng-model="ctrl.content.defaultIconStyle.Height" min="0" step="1" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapIconHeight.$error.required}" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_centeronmarker">Center on Marker</localize>
+                                            <small><localize key="ncmb_maps_descriptions_centeronmarker">Should only be enabled if the map is used for a single marker.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.CenterOnMarker" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </umb-tab>
+
+                        <umb-tab id="tab4" rel="4">
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_cluster_clustering">Clustering</localize>
+                                            <small><localize key="ncmb_maps_cluster_descriptions_clustering">Choose whether you wish to use clustering or not.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.UseClustering" />
                                                 </div>
                                             </div>
                                         </div>
@@ -1033,24 +1015,21 @@
                                 </div>
                                 <hr>
                             </div>
-                        </div>
-                    </umb-tab>
-                    <umb-tab id="tab5" rel="wut5">
-                        <div class="umb-pane">
-                            <div class="form-horizontal tab-content">
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_iw">Info Windows</localize>
-                                                <small><localize key="ncmb_maps_descriptions_iw">Choose whether you wish to use info windows or not.</localize></small>
-                                            </label>
+                        </umb-tab>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.UseInfoWindows" />
-                                                    </div>
+                        <umb-tab id="tab5" rel="5">
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_iw">Info Windows</localize>
+                                            <small><localize key="ncmb_maps_descriptions_iw">Choose whether you wish to use info windows or not.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.UseInfoWindows" />
                                                 </div>
                                             </div>
                                         </div>
@@ -1098,146 +1077,134 @@
                                     </div>
                                 </div>
                             </div>
+                        </umb-tab>
 
-                        </div>
-                    </umb-tab>
-                    <umb-tab id="tab6" rel="wut6">
-                        <div class="umb-pane">
-                            <div class="form-horizontal tab-content">
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_controlsdraggable">Draggable</localize>
-                                                <small><localize key="ncmb_maps_descriptions_controlsdraggable">Choose whether you wish to enable dragging the map or not.</localize></small>
-                                            </label>
+                        <umb-tab id="tab6" rel="6">
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_controlsdraggable">Draggable</localize>
+                                            <small><localize key="ncmb_maps_descriptions_controlsdraggable">Choose whether you wish to enable dragging the map or not.</localize></small>
+                                        </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.Draggable" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_controlsscrollwheel">Scroll Wheel</localize>
-                                                <small><localize key="ncmb_maps_descriptions_controlsscrollwheel">Choose whether you wish to enable scrolling of the map or not.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.ScrollWheelEnabled" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_controlszoom">Zoom</localize>
-                                                <small><localize key="ncmb_maps_descriptions_controlszoom">Choose whether you wish to enable zoom controls or not.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.UseZoomControl" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_controlsmaptype">Map Type</localize>
-                                                <small><localize key="ncmb_maps_descriptions_controlsmaptype">Choose whether you wish to enable map type controls or not.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.UseMapTypeControl" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_maps_controlsstreetview">Street View</localize>
-                                                <small><localize key="ncmb_maps_descriptions_controlsstreetview">Choose whether you wish to enable street view controls or not.</localize></small>
-                                            </label>
-
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <div class="umb-editor umb-boolean">
-                                                        <input type="checkbox" ng-model="ctrl.content.map.UseStreetViewControl" />
-                                                    </div>
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.Draggable" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </umb-tab>
-                </umb-tab-view>
-            </umb-panel>
-            <div class="umb-tab-buttons umb-editor-drawer">
-                <div class="umb-editor-drawer-content">
-                    <div class="umb-editor-drawer-content__right-side ng-scope">
-                        <div class="btn-group umb-button" type="button">
-                            <button type="button" class="btn umb-button__button btn-success" hotkey="ctrl+s" ng-click="ctrl.save(form)">
-                                <span class="umb-button__content">
-                                    <localize key="buttons_save">Save</localize>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_controlsscrollwheel">Scroll Wheel</localize>
+                                            <small><localize key="ncmb_maps_descriptions_controlsscrollwheel">Choose whether you wish to enable scrolling of the map or not.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.ScrollWheelEnabled" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_controlszoom">Zoom</localize>
+                                            <small><localize key="ncmb_maps_descriptions_controlszoom">Choose whether you wish to enable zoom controls or not.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.UseZoomControl" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_controlsmaptype">Map Type</localize>
+                                            <small><localize key="ncmb_maps_descriptions_controlsmaptype">Choose whether you wish to enable map type controls or not.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.UseMapTypeControl" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_controlsstreetview">Street View</localize>
+                                            <small><localize key="ncmb_maps_descriptions_controlsstreetview">Choose whether you wish to enable street view controls or not.</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input type="checkbox" ng-model="ctrl.content.map.UseStreetViewControl" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </umb-tab>
+                    </umb-tabs-content>
+                </umb-editor-container>
+
+                <umb-editor-footer>
+                    <umb-editor-footer-content-right>
+                        <button type="button" class="btn umb-button__button btn-success" hotkey="ctrl+s" ng-click="ctrl.save(form)">
+                            <span class="umb-button__content">
+                                <localize key="buttons_save">Save</localize>
+                            </span>
+                        </button>
+                    </umb-editor-footer-content-right>
+                </umb-editor-footer>
+            </umb-editor-view>
         </form>
     </div>
     <!--#endregion -->
     <!--#region editing data -->
     <div ng-if="ctrl.typeName == 'EditData'">
-        <umb-panel ng-controller="Novicell.EditDataController as ctrl">
-            <form name="form" val-form-manager>
-                <umb-header>
-                    <div class="umb-panel-header-content-wrapper">
-                        <div class="umb-panel-header-content -top-position">
-                            <div class="umb-panel-header-left-side">
-                                <div class="umb-panel-header-title-wrapper">
-                                    <input class="umb-panel-header-name-input" name="datasourceName" type="text" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.datasourceName.$error.required}" ng-model="ctrl.data.Name" localize="placeholder" placeholder="@ncmb_placeholders_entername" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </umb-header>
+        <form name="form" ng-controller="Novicell.EditDataController as ctrl" val-form-manager>
+            <umb-editor-view>
+                <umb-editor-header name="ctrl.data.Name"
+                                   tabs="ctrl.content.tabs"
+                                   hide-icon="true"
+                                   hide-description="true"
+                                   hide-alias="true">
+                </umb-editor-header>
 
-                <div class="umb-panel-body">
-                    <div class="umb-pane">
-                        <div class="form-horizontal tab-content">
+                <umb-editor-container>
+                    <umb-tabs-content view="true" class="form-horizontal">
+                        <umb-tab id="tab1" rel="1">
                             <div class="umb-property">
                                 <div class="control-group umb-control-group">
                                     <div class="umb-el-wrap">
@@ -1256,67 +1223,64 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div ng-if="ctrl.data.DocAlias">
-                            <h4 style="margin: 30px 0"><localize key="ncmb_data_mappingheader">Properties for mapping</localize></h4>
-                            <div class="form-horizontal tab-content">
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_data_titleproperty">Title property selection</localize>
-                                                <small><localize key="ncmb_data_descriptions_titleproperty">Select the property you wish to use as title. Titles are used as mouseover tooltips on map markers.</localize></small>
-                                            </label>
+                            <div ng-if="ctrl.data.DocAlias">
+                                <h4 style="margin: 30px 0"><localize key="ncmb_data_mappingheader">Properties for mapping</localize></h4>
+                                <div class="form-horizontal tab-content">
+                                    <div class="umb-property">
+                                        <div class="control-group umb-control-group">
+                                            <div class="umb-el-wrap">
+                                                <label class="control-label">
+                                                    <localize key="ncmb_data_titleproperty">Title property selection</localize>
+                                                    <small><localize key="ncmb_data_descriptions_titleproperty">Select the property you wish to use as title. Titles are used as mouseover tooltips on map markers.</localize></small>
+                                                </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <select class="umb-editor umb-dropdown" name="datasourceTitleProperty" ng-model="ctrl.data.TitleProperty" ng-options="docTypeProp for docTypeProp in ctrl.docTypeProps track by docTypeProp" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.datasourceTitleProperty.$error.required}" required>
-                                                        <option value="">-- <localize key="ncmb_data_selectproperty">Select property</localize> --</option>
-                                                    </select>
+                                                <div class="controls">
+                                                    <div class="umb-property-editor">
+                                                        <select class="umb-editor umb-dropdown" name="datasourceTitleProperty" ng-model="ctrl.data.TitleProperty" ng-options="docTypeProp for docTypeProp in ctrl.docTypeProps track by docTypeProp" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.datasourceTitleProperty.$error.required}" required>
+                                                            <option value="">-- <localize key="ncmb_data_selectproperty">Select property</localize> --</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="umb-property">
-                                    <div class="control-group umb-control-group">
-                                        <div class="umb-el-wrap">
-                                            <label class="control-label">
-                                                <localize key="ncmb_data_coordsproperty">Coordinates property selection</localize>
-                                                <small><localize key="ncmb_data_descriptions_coordsproperty">Select the property you wish to use for the coordinates. Coordinates are used to place the markers on the map.</localize></small>
-                                            </label>
+                                    <div class="umb-property">
+                                        <div class="control-group umb-control-group">
+                                            <div class="umb-el-wrap">
+                                                <label class="control-label">
+                                                    <localize key="ncmb_data_coordsproperty">Coordinates property selection</localize>
+                                                    <small><localize key="ncmb_data_descriptions_coordsproperty">Select the property you wish to use for the coordinates. Coordinates are used to place the markers on the map.</localize></small>
+                                                </label>
 
-                                            <div class="controls">
-                                                <div class="umb-property-editor">
-                                                    <select class="umb-editor umb-dropdown" name="datasourceCoordsProperty" ng-model="ctrl.data.CoordsProperty" ng-options="docTypeProp for docTypeProp in ctrl.docTypeProps track by docTypeProp" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.datasourceCoordsProperty.$error.required}" required>
-                                                        <option value="">-- <localize key="ncmb_data_selectproperty">Select property</localize> --</option>
-                                                    </select>
+                                                <div class="controls">
+                                                    <div class="umb-property-editor">
+                                                        <select class="umb-editor umb-dropdown" name="datasourceCoordsProperty" ng-model="ctrl.data.CoordsProperty" ng-options="docTypeProp for docTypeProp in ctrl.docTypeProps track by docTypeProp" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.datasourceCoordsProperty.$error.required}" required>
+                                                            <option value="">-- <localize key="ncmb_data_selectproperty">Select property</localize> --</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="umb-tab-buttons umb-editor-drawer">
-                    <div class="umb-editor-drawer-content">
-                        <div class="umb-editor-drawer-content__right-side ng-scope">
-                            <div class="btn-group umb-button" type="button">
-                                <button type="button" class="btn umb-button__button btn-success" hotkey="ctrl+s" ng-click="ctrl.save(form)">
-                                    <span class="umb-button__content">
-                                        <localize key="buttons_save">Save</localize>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </umb-panel>
+                        </umb-tab>
+                    </umb-tabs-content>
+                </umb-editor-container>
+
+                <umb-editor-footer>
+                    <umb-editor-footer-content-right>
+                        <button type="button" class="btn umb-button__button btn-success" hotkey="ctrl+s" ng-click="ctrl.save(form)">
+                            <span class="umb-button__content">
+                                <localize key="buttons_save">Save</localize>
+                            </span>
+                        </button>
+                    </umb-editor-footer-content-right>
+                </umb-editor-footer>
+            </umb-editor-view>
+        </form>
     </div>
     <!--#endregion -->
 </div>
