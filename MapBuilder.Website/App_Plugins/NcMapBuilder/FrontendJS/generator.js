@@ -210,7 +210,6 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
         });
 
         // Calculate center from markers
-        console.log(mapsModel.CenterOnMarker);
         if (mapsModel.CenterOnMarker) {
 
             var diff = [
