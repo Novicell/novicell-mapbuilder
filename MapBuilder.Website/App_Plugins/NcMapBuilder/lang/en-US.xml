@@ -51,7 +51,7 @@
     <key alias="iconurl">Icon URL</key>
     <key alias="iconwidth">Icon Width (pixels)</key>
     <key alias="iconheight">Icon Height (pixels)</key>
-    <key alias="centeronmarker">Center on Marker</key>
+    <key alias="centeronmarker">Center on Markers</key>
     <key alias="iw">Info Windows</key>
     <key alias="iwsettingsheader">Settings</key>
     <key alias="iwwidth">Width (pixels)</key>
@@ -76,7 +76,7 @@
     <key alias="iconurl">URL for the icon you wish to use for the marker icon. Should be of type PNG.</key>
     <key alias="iconwidth">Needs to be the same width as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
     <key alias="iconheight">Needs to be the same height as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
-    <key alias="centeronmarker">Should only be enabled if the map is used for a single marker.</key>
+    <key alias="centeronmarker">Centering the map to curtain distance between markers.</key>
     <key alias="iw">Choose whether you wish to use info windows or not.</key>
     <key alias="iwwidth">The desired width of the info window.</key>
     <key alias="iwpartial">The name of the partial you wish to use for rendering info windows. These partials should be placed in "Views/Partials/MapBuilder/InfoWindows"</key>

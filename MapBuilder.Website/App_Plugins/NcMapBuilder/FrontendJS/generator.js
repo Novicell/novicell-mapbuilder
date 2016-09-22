@@ -13,6 +13,9 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
     var mapAlias = '';
     var mapsModel = {};
     var isLoaded = false;
+    var minCoordinates = [100, 100];
+    var maxCoordinates = [0, 0];
+    var maxDistance = 6.0;
 
     function init(alias, nodes, titleProperty, coordsProperty) {
         mapAlias = alias;
@@ -109,6 +112,15 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
         }
 
         mapsModel.Nodes.forEach(function (node) {
+
+            if (node.Coordinates[0] < minCoordinates[0]) {
+                minCoordinates = node.Coordinates;
+            }
+
+            if (node.Coordinates[0] > maxCoordinates[0]) {
+                maxCoordinates = node.Coordinates;
+            }
+
             var markerOptions = {
                 position: new google.maps.LatLng(node.Coordinates[0], node.Coordinates[1]),
                 title: node.Title,
@@ -196,6 +208,48 @@ ncmapbuilder.generator = ncmapbuilder.generator || function () {
             google.maps.event.trigger(map, "resize");
             map.setCenter(center);
         });
+
+        // Calculate center from markers
+        if (mapsModel.CenterOnMarker) {
+
+            var diff = [
+                (maxCoordinates[0] - minCoordinates[0]) / 2,
+                (maxCoordinates[1] - minCoordinates[1]) / 2
+            ];
+
+            if (diff[0] < 0) {
+                diff[0] *= -1;
+            }
+
+            if (diff[1] < 0) {
+                diff[1] *= -1;
+            }
+
+            if (diff[0] < maxDistance && diff[1] < maxDistance) {
+
+                var lat, lng;
+
+                if (minCoordinates[0] > maxCoordinates[0]) {
+                    lat = maxCoordinates[0] + diff[0]
+                } else {
+                    lat = minCoordinates[0] + diff[0]
+                }
+
+                if (minCoordinates[1] > maxCoordinates[1]) {
+                    lng = maxCoordinates[1] + diff[1]
+                } else {
+                    lng = minCoordinates[1] + diff[1]
+                }
+
+                var center = {
+                    lat: lat,
+                    lng: lng
+                };
+
+                map.setCenter(center);
+            }
+        }
+
     }
 
     // Helper functions
