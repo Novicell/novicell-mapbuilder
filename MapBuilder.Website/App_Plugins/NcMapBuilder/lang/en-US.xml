@@ -61,6 +61,7 @@
     <key alias="controlszoom">Zoom</key>
     <key alias="controlsmaptype">Map Type</key>
     <key alias="controlsstreetview">Street View</key>
+    <key alias="centercoords">Center Coordinates</key>
   </area>
 
   <area alias="ncmb_maps_descriptions">
@@ -76,7 +77,7 @@
     <key alias="iconurl">URL for the icon you wish to use for the marker icon. Should be of type PNG.</key>
     <key alias="iconwidth">Needs to be the same width as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
     <key alias="iconheight">Needs to be the same height as the PNG selected above. This is required because of a limitation in Google Maps API.</key>
-    <key alias="centeronmarker">Centering the map to curtain distance between markers.</key>
+    <key alias="centeronmarker">Centering the map to certain distance between markers.</key>
     <key alias="iw">Choose whether you wish to use info windows or not.</key>
     <key alias="iwwidth">The desired width of the info window.</key>
     <key alias="iwpartial">The name of the partial you wish to use for rendering info windows. These partials should be placed in "Views/Partials/MapBuilder/InfoWindows"</key>
@@ -85,6 +86,7 @@
     <key alias="controlszoom">Choose whether you wish to enable zoom controls or not.</key>
     <key alias="controlsmaptype">Choose whether you wish to enable map type controls or not.</key>
     <key alias="controlsstreetview">Choose whether you wish to enable street view controls or not.</key>
+    <key alias="centercoords">Set the default center coordinates. If "Center on Markers" is enabled (tab Markers), this won't have any effect. Example: 55.89736311199348,10.856373806359898</key>
   </area>
 
   <area alias="ncmb_maps_tabs">

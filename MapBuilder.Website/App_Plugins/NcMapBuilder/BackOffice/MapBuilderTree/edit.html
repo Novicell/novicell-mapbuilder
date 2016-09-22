@@ -238,6 +238,25 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="umb-property">
+                                <div class="control-group umb-control-group">
+                                    <div class="umb-el-wrap">
+                                        <label class="control-label">
+                                            <localize key="ncmb_maps_centercoords">Center Coordinates</localize>
+                                            <small><localize key="ncmb_maps_descriptions_centercoords">Set the default center coordinates. If "Center on Markers" is enabled (tab Markers), this won't have any effect. Example: 55.89736311199348,10.856373806359898</localize></small>
+                                        </label>
+
+                                        <div class="controls">
+                                            <div class="umb-property-editor">
+                                                <div class="umb-editor umb-boolean">
+                                                    <input class="umb-editor umb-textstring textstring" type="text" name="mapCenterCoords" ng-model="ctrl.content.map.Center" ng-class="{'ncMapBuilderInvalidValue': form.$submitted && form.mapCenterCoords.$error.required}" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </umb-tab>
 
                         <umb-tab id="tab3" rel="3">
@@ -297,7 +316,7 @@
                                     <div class="umb-el-wrap">
                                         <label class="control-label">
                                             <localize key="ncmb_maps_centeronmarker">Center on Markers</localize>
-                                            <small><localize key="ncmb_maps_descriptions_centeronmarker">Centering the map to curtain distance between markers</localize></small>
+                                            <small><localize key="ncmb_maps_descriptions_centeronmarker">Centering the map to certain distance between markers</localize></small>
                                         </label>
 
                                         <div class="controls">
