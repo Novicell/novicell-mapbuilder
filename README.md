@@ -1,6 +1,6 @@
 # Novicell MapBuilder
 
-MapBuilder is an umbraco package for easily generating Google Maps based on umbraco nodes. Perfect for generating a map with physical stores.
+MapBuilder is an Umbraco package for easily generating Google Maps based on Umbraco nodes. Perfect for generating a map with physical stores.
 
 
 ### Table of content
@@ -13,15 +13,15 @@ MapBuilder is an umbraco package for easily generating Google Maps based on umbr
 * [License](#license)
 
 ## Quick start
-To go https://our.umbraco.org/projects/website-utilities/mapbuilder/ and download the package.
+Go to https://our.umbraco.org/projects/website-utilities/mapbuilder/ and download the package.
 
-Then go to your backoffice > Developer > Packages > Install local package, and install it as usual. Accept when you're told that the package contain binary files.
+Then go to your backoffice > Developer > Packages > Install local package, and install it as usual. Accept when you're told that the package contains binary files.
 
-After the installation completes. Go to the new custom section, and setup a datasource. After you've created a datasource, create a new map, and set the datasource to the newly created one.
+After the installation completes, go to the new custom section and setup a datasource (if you don't see the new section, go to the Users section and enable it for yourself and any others that need access). After you've created a datasource, create a new map, and set its datasource to the newly created one.
 
 Go to the map and copy the alias. We need this for the next part.
 
-When you're all set in the custom section, go to the view where you wish for the map to be showed. Use @Html.RenderMap(MAPALIAS), and that's it.
+When you're all set in the custom section, go to the view where you wish for the map to be showed. Use `@Html.RenderMap(MAPALIAS)`, and that's it.
 
 ## Public methods
 The methods available for use is:
@@ -53,10 +53,11 @@ If you have an improvement for the project, please fork the project and create a
 
 ## Login for development
 To log into Umbraco when developing for this repository, please use the following credentials:
-Username: admin
-Password: admin1234
 
-The setup uses Microsoft SQL CE (Compact Edition) to avoid having to setup a new database and cloning in a bak file.
+	Username: admin
+	Password: admin1234
+
+The setup uses Microsoft SQL CE (Compact Edition) to avoid having to setup a new database and cloning in a .bak file.
 
 ## License
 MIT License - http://opensource.org/licenses/MIT
