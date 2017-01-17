@@ -1,7 +1,6 @@
-﻿var apiPath = 'backoffice/api/MapBuilderBackOfficeApi/';
-
 angular.module('umbraco.resources')
     .factory('mapBuilderResource', function($http) {
+    ﻿   var apiPath = 'backoffice/api/MapBuilderBackOfficeApi/';
         return {
             // Maps
             getAllMaps: function() {
