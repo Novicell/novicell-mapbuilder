@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web.Script.Serialization;
 using MapBuilder.Library.Models;
@@ -89,7 +90,7 @@ namespace MapBuilder.Library.Helpers
                     model.Coordinates =
                         node.GetPropertyValue<string>(!string.IsNullOrWhiteSpace(coordsProperty)
                             ? coordsProperty
-                            : dataModel.CoordsProperty).Split(',').Select(double.Parse).ToArray();
+                            : dataModel.CoordsProperty).Split(',').Select(d => double.Parse(d, CultureInfo.InvariantCulture)).ToArray();
                     model.InfoWindowContent =
                         new RazorHelper().RenderPartialView("NcMapBuilder/InfoWindows/" + infoWindowName,
                             new InfoWindowModel {Id = node.Id});
