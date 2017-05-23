@@ -28,7 +28,7 @@ namespace MapBuilder.Library.Helpers
                 var apiResult = new ApiMapsModel
                 {
                     ApiKey = model.ApiKey,
-                    Center = model.Center.Split(',').Select(double.Parse).ToArray(),
+                    Center = model.Center.Split(',').Select(d => double.Parse(d, CultureInfo.InvariantCulture)).ToArray(),
                     CenterOnMarker = model.CenterOnMarker,
                     ClusterStyle = jss.Deserialize<List<ApiClusterStyleModel>>(model.ClusterStyle),
                     DefaultIconStyleModel = jss.Deserialize<ApiDefaultIconStyleModel>(model.DefaultIconStyle),
