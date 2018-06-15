@@ -1,5 +1,7 @@
 # Novicell MapBuilder
 
+**This respository is no longer maintained, and therefore archived. Reach out to Novicell by visiting https://www.novicell.dk if you have any quetions. Thank you for using MapBuilder**
+
 MapBuilder is an Umbraco package for easily generating Google Maps based on Umbraco nodes. Perfect for generating a map with physical stores.
 
 
